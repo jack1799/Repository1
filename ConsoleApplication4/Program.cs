@@ -20,28 +20,28 @@ namespace ConsoleApplication4
         }
         static void QuickSort(double[] array, int FirstArrayIndex, int SecondArrayIndex)
         {
-            int A = FirstArrayIndex;
-            int B = SecondArrayIndex;
+            int FirstChangingIndex = FirstArrayIndex;
+            int SecondChangingIndex = SecondArrayIndex;
             double ReferenceElement;
             if (SecondArrayIndex > FirstArrayIndex)
             {
                 ReferenceElement = array[(FirstArrayIndex + SecondArrayIndex) / 2];
-                while (A <= B)
+                while (FirstChangingIndex <= SecondChangingIndex)
                 {
-                    while ((A < SecondArrayIndex) && (array[A] < ReferenceElement)) ++A;             
-                    while ((B > FirstArrayIndex) && (array[B] > ReferenceElement)) --B;
-                   if (A <= B)
+                    while ((FirstChangingIndex < SecondArrayIndex) && (array[FirstChangingIndex] < ReferenceElement)) ++FirstChangingIndex;             
+                    while ((SecondChangingIndex > FirstArrayIndex) && (array[SecondChangingIndex] > ReferenceElement)) --SecondChangingIndex;
+                   if (FirstChangingIndex <= SecondChangingIndex)
                     {
                         double T;
-                        T = array[A];
-                        array[A] = array[B];
-                        array[B] = T;
-                        ++A;
-                        --B;
+                        T = array[FirstChangingIndex];
+                        array[FirstChangingIndex] = array[SecondChangingIndex];
+                        array[SecondChangingIndex] = T;
+                        ++FirstChangingIndex;
+                        --SecondChangingIndex;
                     }
                 } 
-                if (FirstArrayIndex < B) QuickSort(array, FirstArrayIndex, B);               
-                if (A < SecondArrayIndex) QuickSort(array, A, SecondArrayIndex);
+                if (FirstArrayIndex < SecondChangingIndex) QuickSort(array, FirstArrayIndex, SecondChangingIndex);               
+                if (FirstChangingIndex < SecondArrayIndex) QuickSort(array, FirstChangingIndex, SecondArrayIndex);
             }
         }
     }
