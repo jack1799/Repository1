@@ -11,7 +11,14 @@ namespace ConsoleApplication4
         static void Main(string[] args)
         {
             double[] a = { 5, 4, 3, 2, 1 };
+            Console.WriteLine("Был массив");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i]+" ");
+            }
+            Console.WriteLine();
             QuickSort(a, 0, a.Length - 1);
+            Console.WriteLine("Получили массив");
             for (int i = 0; i < a.Length; i++)
             {
                 Console.Write(a[i] + " ");
